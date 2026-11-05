@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teja Bellary</title>
+  <meta name="description" content="Teja Bellary — MBA candidate at Columbia Business School, former VP Product Manager in Digital Payments at JPMorgan Chase.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --columbia: #B9D9EB;
+      --columbia-soft: #E3F0F8;
+      --navy: #1D4F91;
+      --ink: #0F2440;
+      --muted: #4A5D78;
+      --paper: #F7FAFC;
+      --card: #FFFFFF;
+      --line: #D6E4EF;
+      --shadow: 0 1px 2px rgba(15,36,64,.06), 0 8px 24px rgba(15,36,64,.06);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --columbia: #7FB3D5;
+        --columbia-soft: #16304D;
+        --navy: #9CCBE8;
+        --ink: #E8F1F8;
+        --muted: #A9BCD0;
+        --paper: #0B1626;
+        --card: #112138;
+        --line: #1F3654;
+        --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+    body {
+      margin: 0; background: var(--paper); color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--navy); }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--columbia); outline-offset: 2px; border-radius: 6px; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+    /* Nav */
+    header.nav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--paper) 85%, transparent);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+    .brand { font-weight: 800; text-decoration: none; color: var(--ink); letter-spacing: -.01em; white-space: nowrap; }
+    .brand span { color: var(--navy); }
+    .nav ul { list-style: none; display: flex; gap: 4px; margin: 0; padding: 0; overflow-x: auto; scrollbar-width: none; }
+    .nav ul::-webkit-scrollbar { display: none; }
+    .nav li a {
+      display: block; padding: 6px 12px; border-radius: 999px; text-decoration: none;
+      color: var(--muted); font-weight: 500; font-size: .92rem; white-space: nowrap;
+    }
+    .nav li a:hover, .nav li a.active { background: var(--columbia-soft); color: var(--navy); }
+
+    /* Hero */
+    .hero { padding: 64px 0 40px; }
+    .hero .wrap { display: grid; grid-template-columns: 200px 1fr; gap: 40px; align-items: center; }
+    .hero img {
+      width: 200px; height: 200px; border-radius: 50%; object-fit: cover;
+      border: 6px solid var(--columbia); box-shadow: var(--shadow);
+    }
+    .eyebrow { color: var(--navy); font-weight: 600; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 6px; }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.1; margin: 0 0 12px; letter-spacing: -.02em; }
+    .lede { font-size: 1.1rem; color: var(--muted); margin: 0 0 20px; max-width: 56ch; }
+    .links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 10px;
+      font-weight: 600; font-size: .95rem; text-decoration: none; border: 1px solid var(--line);
+      background: var(--card); color: var(--ink);
+    }
+    .btn.primary { background: var(--navy); color: #fff; border-color: var(--navy); }
+    @media (prefers-color-scheme: dark) { .btn.primary { color: #0B1626; } }
+    .btn:hover { transform: translateY(-1px); }
+    .btn svg { width: 18px; height: 18px; }
+
+    /* Tiles (quick jump) */
+    .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 8px 0 24px; }
+    .tile {
+      display: block; text-decoration: none; color: var(--ink);
+      background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px;
+      box-shadow: var(--shadow); transition: transform .15s, border-color .15s;
+    }
+    .tile:hover { transform: translateY(-2px); border-color: var(--columbia); }
+    .tile .num { display: block; font-size: 1.7rem; font-weight: 800; color: var(--navy); letter-spacing: -.02em; }
+    .tile .lbl { font-size: .88rem; color: var(--muted); }
+
+    /* Sections */
+    section.block { padding: 40px 0; }
+    h2 {
+      font-size: 1.5rem; margin: 0 0 20px; letter-spacing: -.01em;
+      display: flex; align-items: center; gap: 12px;
+    }
+    h2::before { content: ""; width: 28px; height: 6px; border-radius: 3px; background: var(--columbia); }
+    .card {
+      background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+      padding: 24px; box-shadow: var(--shadow); margin-bottom: 16px;
+    }
+    .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: baseline; }
+    .org { font-size: 1.15rem; font-weight: 700; margin: 0; }
+    .meta { color: var(--muted); font-size: .92rem; text-align: right; }
+    .degree { margin: 4px 0 0; font-weight: 500; }
+    .role { margin-top: 20px; padding-top: 18px; border-top: 1px dashed var(--line); }
+    .role:first-of-type { margin-top: 16px; }
+    .role h3 { font-size: 1rem; margin: 0 0 8px; }
+    .role h3 .dates { font-weight: 500; color: var(--muted); }
+    ul.bullets { margin: 0; padding-left: 20px; }
+    ul.bullets li { margin: 6px 0; }
+    .label { font-style: italic; color: var(--muted); }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .chip { background: var(--columbia-soft); color: var(--navy); border-radius: 999px; padding: 4px 12px; font-size: .86rem; font-weight: 500; }
+
+    .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .info-grid .card { margin: 0; }
+    .info-grid h3 { margin: 0 0 8px; font-size: 1rem; color: var(--navy); }
+    .info-grid p { margin: 0; }
+
+    footer { padding: 40px 0 56px; color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); margin-top: 24px; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+    @media (max-width: 760px) {
+      .hero { padding: 36px 0 24px; }
+      .hero .wrap { grid-template-columns: 1fr; gap: 20px; text-align: left; }
+      .hero img { width: 120px; height: 120px; border-width: 4px; }
+      .tiles { grid-template-columns: repeat(2, 1fr); }
+      .info-grid { grid-template-columns: 1fr; }
+      .meta { text-align: left; }
+      .brand { display: none; }
+      .wrap { padding: 0 16px; }
+      .card { padding: 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .tile, .btn { transition: none; } }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="#top">Teja <span>Bellary</span></a>
+      <nav aria-label="Sections">
+        <ul>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#additional">Additional Info</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <img src="Teja_Bellary.jpeg" alt="Portrait of Teja Bellary">
+        <div>
+          <p class="eyebrow">MBA Candidate · Columbia Business School</p>
+          <h1>Hi, I'm Teja Bellary.</h1>
+          <p class="lede">Product manager turned MBA student. Most recently I was a Vice President, Product Manager in Digital Payments at JPMorgan Chase, where I led Chase's digital invoicing product for small businesses.</p>
+          <div class="links">
+            <a class="btn primary" href="mailto:tbellary27@gsb.columbia.edu">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              Email me
+            </a>
+            <a class="btn" href="https://www.linkedin.com/in/tejabellary/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg>
+              LinkedIn
+            </a>
+            <a class="btn" href="https://github.com/tbellary" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="tiles" aria-label="Highlights">
+        <a class="tile" href="#jpmc"><span class="num">3.5M</span><span class="lbl">SMB customers reached at launch</span></a>
+        <a class="tile" href="#jpmc"><span class="num">$79M</span><span class="lbl">Card processing volume, year one</span></a>
+        <a class="tile" href="#jpmc"><span class="num">146K</span><span class="lbl">Enrollments in the first year</span></a>
+        <a class="tile" href="#jpmc"><span class="num">64%</span><span class="lbl">Consistent 3-month retention</span></a>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <section class="block" id="education">
+      <div class="wrap">
+        <h2>Education</h2>
+
+        <article class="card">
+          <div class="row">
+            <div>
+              <p class="org">Columbia Business School</p>
+              <p class="degree">MBA</p>
+            </div>
+            <div class="meta">New York, NY<br>2026 – Present</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="row">
+            <div>
+              <p class="org">York University</p>
+              <p class="degree"><strong>BS</strong>, Biology and Health Studies (Double Major)</p>
+            </div>
+            <div class="meta">Toronto, Canada<br>2014 – 2019</div>
+          </div>
+          <p class="label" style="margin:16px 0 0;">Leadership / Extracurriculars</p>
+          <div class="chips">
+            <span class="chip">Residence Advisor</span>
+            <span class="chip">Research Assistant, Stem Cell Engineering Lab</span>
+            <span class="chip">Research Assistant, Lassonde School of Engineering Dean's Office</span>
+            <span class="chip">Peer Health Educator</span>
+            <span class="chip">Vice President Academics, New College Council</span>
+            <span class="chip">Founding Member, Biomedical Engineering Club</span>
+            <span class="chip">Attended The LeaderShape Institute</span>
+            <span class="chip">Communications Assistant, UNICEF at YorkU club</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="block" id="experience">
+      <div class="wrap">
+        <h2>Experience</h2>
+
+        <article class="card" id="jpmc">
+          <div class="row">
+            <p class="org">JPMorgan Chase &amp; Co</p>
+            <div class="meta">New York, NY · 2023 – 2025</div>
+          </div>
+          <div class="role">
+            <h3>Vice President, Product Manager, Digital Payments <span class="dates">(2023 – 2025)</span></h3>
+            <ul class="bullets">
+              <li>Led the end-to-end development and delivery of Chase's digital invoicing product across web and mobile channels integrated with card and Zelle, ensuring a timely launch to 3.5M small and medium-sized business banking customers</li>
+              <li>Owned the product roadmap and strategy, managed the business case and quarterly planning process, and conducted analyses of competitor offerings, customer feedback, and product data to inform feature prioritization</li>
+              <li>Built monthly performance dashboards to track metrics, and achieved rapid adoption within the first year resulting in $79M card processing volume, 146K enrollments, 37K active users, and a consistent 64% 3-month retention rate</li>
+            </ul>
+          </div>
+          <div class="role">
+            <h3>Senior Associate, Product Manager <span class="dates">(2022 – 2023)</span></h3>
+            <ul class="bullets">
+              <li>Managed all phases of the software development lifecycle, translated business to functional requirements through writing user stories and acceptance criteria, oversaw development across three backend and UI engineering teams</li>
+              <li>Presented updates in multiple forums to senior leadership and broader product teams, collaborated across complex stakeholder environment with research, design, operations, analytics, controls, legal, risk, and marketing partners</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="row">
+            <p class="org">ACTO Technologies</p>
+            <div class="meta">Toronto, Canada · 2020 – 2022</div>
+          </div>
+          <div class="role">
+            <h3>Senior Partnerships Specialist <span class="dates">(2021 – 2022)</span></h3>
+            <ul class="bullets">
+              <li>Supervised the largest technology partnerships and development of integrations, resulting in releasing an extension on Salesforce's AppExchange marketplace, and obtained the silver partner tier with Veeva Systems</li>
+              <li>Oversaw technical build of new features and content integrations with several industry partners, aligning with external stakeholders from high-level strategic discussions through to project scoping and operational execution</li>
+            </ul>
+          </div>
+          <div class="role">
+            <h3>Implementation &amp; Partner Specialist <span class="dates">(2020 – 2021)</span></h3>
+            <ul class="bullets">
+              <li>Executed end-to-end software implementations from kickoff to launch, supervised tasks by defining and tracking key metrics and timelines to ensure client onboarding and timely project delivery</li>
+              <li>Developed enablement materials and provided product training, determined and executed on joint go-to-market strategies, resulting in increased customer acquisition and retention for both partnering companies</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="row">
+            <p class="org">Cambridge Brain Sciences</p>
+            <div class="meta">Toronto, Canada · 2019 – 2020</div>
+          </div>
+          <div class="role">
+            <h3>Business Development Representative <span class="dates">(2019 – 2020)</span></h3>
+            <ul class="bullets">
+              <li>Built a strategic network of business accounts in the healthcare industry, and expanded customer acquisition through conducting outreach, qualifying leads, and running customized product demonstrations</li>
+              <li>Surpassed monthly targets by 20% and developed lead generation strategies for several industry verticals, analyzed customer feedback and engagement metrics, resulting in expansion of product segments and overall market coverage</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ADDITIONAL INFORMATION -->
+    <section class="block" id="additional">
+      <div class="wrap">
+        <h2>Additional Information</h2>
+        <div class="info-grid">
+          <article class="card">
+            <h3>Certifications</h3>
+            <p>Professional Scrum Product Owner (PSPO), proficient in Atlassian (Jira, Confluence, Align)</p>
+          </article>
+          <article class="card">
+            <h3>Interests</h3>
+            <p>Travel, hiking and skiing in the Rockies, reading historical fiction novels, exploring the NYC food scene</p>
+          </article>
+          <article class="card">
+            <h3>Languages</h3>
+            <p>English, intermediate Hindi, beginner Spanish and French</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="wrap">
+      <span>Say hello: <a href="mailto:tbellary27@gsb.columbia.edu">tbellary27@gsb.columbia.edu</a> · <a href="https://www.linkedin.com/in/tejabellary/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/tbellary" target="_blank" rel="noopener">GitHub</a></span>
+      <span>© 2026 Teja Bellary</span>
+    </div>
+  </footer>
+
+  <script>
+    // Highlight the nav link for the section in view
+    const links = document.querySelectorAll('.nav li a');
+    const map = new Map([...links].map(a => [a.getAttribute('href').slice(1), a]));
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          map.get(e.target.id)?.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    map.forEach((_, id) => { const el = document.getElementById(id); if (el) obs.observe(el); });
+  </script>
+</body>
+</html>
